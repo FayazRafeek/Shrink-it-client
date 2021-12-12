@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Shrint it",
+  "name": "Shrint it : Url Shortner tool",
   "icons": [
     {
       "src": "favicon.ico",

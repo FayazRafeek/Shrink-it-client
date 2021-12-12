@@ -1,38 +1,261 @@
-.App {
-  text-align: center;
-}
+.container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.bg-stick {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: #fff59f;
+  opacity: 1;
+  background-size: 10px 10px;
+  background-image: repeating-linear-gradient(45deg, #ffbf6b 0, #f7b844 1px, #ffea83 0, #f7f4e5 50%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.parent {
+  position: relative;
+  width: 80%;
+  max-width : 700px;
+  height: auto;
+  z-index: 2;
+  overflow: hidden;
+
+}
+
+.main-container {
+  background-color: rgb(248, 248, 248);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  padding: 34px 36px;
+  transition: all 0.5s ease-in-out; 
+}
+
+.main-container p{
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0;
+}
+
+.main-container .inp {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+}
+
+
+.main-container .close-icon {
+  position: absolute;
+  right: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.main-container .close-icon:hover {
+  color: #ff816b;
+}
+
+.main-container input[type = 'text'] {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #f1f1f1;
+  font-size: 16px;
+  color: #000000;font-weight: 500;
+}
+
+.main-container input::placeholder {
+  font-style: italic;
+  font-size: 15px;
+}
+
+.main-container button {
+
+  margin-top: 16px;
+  padding: 15px 15px;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #000000;
+  color: #fff;
+  border : 0;
+  cursor: pointer;
+}
+
+.main-container button:hover  {
+  background-color: #272727;
+  color: #fff;
+}
+
+.divider {
+  width : 100%;
+  border-bottom: 2px solid #a3a3a3;
+  margin: 30px 0 10px 0 ;
+}
+
+.output-url{
+  padding: 15px 20px;
+  background-color: #f1f1f1;
+  display:flex;
+  justify-content: space-between;
+  color: rgb(59, 0, 168);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.output-url .icons {
+  display: flex;
+  gap : 10px;
+}
+
+.output-url .icon:hover {
+
+  cursor: pointer;
+  background-color: #ddd;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.output-action-btns{
+  display: none;
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 600px) {
+  .main-container {
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .main-container p{
+    font-size: 14px;
+  }
+  .main-container .inp {
+    margin-top: 14px;
+  }
+  .main-container input[type = 'text'] {
+    width: 100%;
+    padding: 10px 20px;
+  }
+  .main-container button {
+    margin-top: 14px;
+    font-size: 12px;
+  }
+
+  .divider {
+    border-bottom: 2px solid #a3a3a3;
+    margin: 15px 0 15px 0 ;
+  }
+  
+  .output-url{
+    padding: 10px 15px;
+    background-color: #f1f1f1;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: rgb(59, 0, 168);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    overflow-x: scroll;
+  }
+  
+  .output-url .icons {
+    display: none;
+  }
+
+  .output-action-btns{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;;
+  }
+
+  .output-action-btns div{
+    font-size: 10px;
+    background-color: #ddd;
+    padding: 7px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .output-action-btns div:hover{
+    cursor: pointer;
+    background-color: #777;
+    color: #fff;
+  }
+  
+  .output-url .icon:hover {
+  
+    cursor: pointer;
+    background-color: #ddd;
+  }
+  
+  .stack {
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
+
+
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Loader */
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: rgb(39, 39, 39);
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
   }
 }
